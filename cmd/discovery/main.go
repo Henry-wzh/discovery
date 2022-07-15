@@ -7,10 +7,11 @@ import (
 	"syscall"
 	"time"
 
+	log "github.com/go-kratos/kratos/pkg/log"
+
 	"github.com/bilibili/discovery/conf"
 	"github.com/bilibili/discovery/discovery"
 	"github.com/bilibili/discovery/http"
-	log "github.com/go-kratos/kratos/pkg/log"
 )
 
 func main() {
