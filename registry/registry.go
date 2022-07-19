@@ -6,11 +6,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/bilibili/discovery/conf"
-	"github.com/bilibili/discovery/model"
-
 	"github.com/go-kratos/kratos/pkg/ecode"
 	log "github.com/go-kratos/kratos/pkg/log"
+
+	"github.com/bilibili/discovery/conf"
+	"github.com/bilibili/discovery/model"
 )
 
 const (
@@ -48,7 +48,7 @@ func newConn(ch chan map[string]*model.InstanceInfo, latestTime int64, arg *mode
 }
 
 // NewRegistry new register.
-func NewRegistry(conf *conf.Config) (r *Registry) {
+func NewRegistry(_ *conf.Config) (r *Registry) {
 	r = &Registry{
 		appm:  make(map[string]*model.Apps),
 		conns: make(map[string]*hosts),

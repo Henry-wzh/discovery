@@ -7,15 +7,15 @@ import (
 	"testing"
 	"time"
 
-	dc "github.com/bilibili/discovery/conf"
-	"github.com/bilibili/discovery/model"
 	"github.com/go-kratos/kratos/pkg/ecode"
 	bm "github.com/go-kratos/kratos/pkg/net/http/blademaster"
 	"github.com/go-kratos/kratos/pkg/net/http/blademaster/binding"
 	xtime "github.com/go-kratos/kratos/pkg/time"
-
 	. "github.com/smartystreets/goconvey/convey"
 	gock "gopkg.in/h2non/gock.v1"
+
+	dc "github.com/bilibili/discovery/conf"
+	"github.com/bilibili/discovery/model"
 )
 
 var config = newConfig()
@@ -109,7 +109,7 @@ func TestNodes(t *testing.T) {
 	})
 	Convey("test all nodes", t, func() {
 		cfg := newConfig()
-		cfg.Zones = map[string][]string{"zone": []string{"127.0.0.1:7172"}}
+		cfg.Zones = map[string][]string{"zone": {"127.0.0.1:7172"}}
 		nodes := NewNodes(cfg)
 		res := nodes.AllNodes()
 		So(len(res), ShouldResemble, 2)
