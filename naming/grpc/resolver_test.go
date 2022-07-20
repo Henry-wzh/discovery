@@ -5,10 +5,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bilibili/discovery/naming"
-
 	"google.golang.org/grpc/resolver"
 	"google.golang.org/grpc/serviceconfig"
+
+	"github.com/bilibili/discovery/naming"
 )
 
 type mockResolver struct {
@@ -17,17 +17,17 @@ type mockResolver struct {
 func (m *mockResolver) Fetch() (insInfo *naming.InstancesInfo, ok bool) {
 	ins := make(map[string][]*naming.Instance)
 	ins["sh001"] = []*naming.Instance{
-		&naming.Instance{Addrs: []string{"http://127.0.0.1:8080", "grpc://127.0.0.1:9090"}, Metadata: map[string]string{naming.MetaCluster: "c1"}},
-		&naming.Instance{Addrs: []string{"http://127.0.0.2:8080", "grpc://127.0.0.2:9090"}, Metadata: map[string]string{naming.MetaCluster: "c1"}},
-		&naming.Instance{Addrs: []string{"http://127.0.0.3:8080", "grpc://127.0.0.3:9090"}, Metadata: map[string]string{naming.MetaCluster: "c1"}},
-		&naming.Instance{Addrs: []string{"http://127.0.0.4:8080", "grpc://127.0.0.4:9090"}, Metadata: map[string]string{naming.MetaCluster: "c2"}},
-		&naming.Instance{Addrs: []string{"http://127.0.0.5:8080", "grpc://127.0.0.5:9090"}, Metadata: map[string]string{naming.MetaCluster: "c3"}},
-		&naming.Instance{Addrs: []string{"http://127.0.0.5:8080", "grpc://127.0.0.5:9090"}, Metadata: map[string]string{naming.MetaCluster: "c4"}},
+		{Addrs: []string{"http://127.0.0.1:8080", "grpc://127.0.0.1:9090"}, Metadata: map[string]string{naming.MetaCluster: "c1"}},
+		{Addrs: []string{"http://127.0.0.2:8080", "grpc://127.0.0.2:9090"}, Metadata: map[string]string{naming.MetaCluster: "c1"}},
+		{Addrs: []string{"http://127.0.0.3:8080", "grpc://127.0.0.3:9090"}, Metadata: map[string]string{naming.MetaCluster: "c1"}},
+		{Addrs: []string{"http://127.0.0.4:8080", "grpc://127.0.0.4:9090"}, Metadata: map[string]string{naming.MetaCluster: "c2"}},
+		{Addrs: []string{"http://127.0.0.5:8080", "grpc://127.0.0.5:9090"}, Metadata: map[string]string{naming.MetaCluster: "c3"}},
+		{Addrs: []string{"http://127.0.0.5:8080", "grpc://127.0.0.5:9090"}, Metadata: map[string]string{naming.MetaCluster: "c4"}},
 	}
 	ins["sh002"] = []*naming.Instance{
-		&naming.Instance{Addrs: []string{"http://127.0.0.1:8080", "grpc://127.0.0.1:9090"}},
-		&naming.Instance{Addrs: []string{"http://127.0.0.2:8080", "grpc://127.0.0.2:9090"}},
-		&naming.Instance{Addrs: []string{"http://127.0.0.3:8080", "grpc://127.0.0.3:9090"}},
+		{Addrs: []string{"http://127.0.0.1:8080", "grpc://127.0.0.1:9090"}},
+		{Addrs: []string{"http://127.0.0.2:8080", "grpc://127.0.0.2:9090"}},
+		{Addrs: []string{"http://127.0.0.3:8080", "grpc://127.0.0.3:9090"}},
 	}
 	insInfo = &naming.InstancesInfo{
 		Instances: ins,

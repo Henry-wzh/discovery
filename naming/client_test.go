@@ -10,14 +10,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bilibili/discovery/conf"
-	"github.com/bilibili/discovery/discovery"
-	"github.com/bilibili/discovery/http"
-
 	"github.com/go-kratos/kratos/pkg/conf/paladin"
 	xhttp "github.com/go-kratos/kratos/pkg/net/http/blademaster"
 	xtime "github.com/go-kratos/kratos/pkg/time"
 	. "github.com/smartystreets/goconvey/convey"
+
+	"github.com/bilibili/discovery/conf"
+	"github.com/bilibili/discovery/discovery"
+	"github.com/bilibili/discovery/http"
 )
 
 func TestMain(m *testing.M) {
@@ -167,38 +167,38 @@ func TestUseScheduler(t *testing.T) {
 		insInfo := &InstancesInfo{}
 		insInfo.Instances = make(map[string][]*Instance)
 		insInfo.Instances["sh001"] = []*Instance{
-			&Instance{Zone: "sh001", Metadata: map[string]string{
+			{Zone: "sh001", Metadata: map[string]string{
 				"weight": "10",
 			}},
-			&Instance{Zone: "sh001", Metadata: map[string]string{
+			{Zone: "sh001", Metadata: map[string]string{
 				"weight": "10",
 			}},
 		}
 		insInfo.Instances["sh002"] = []*Instance{
-			&Instance{Zone: "sh002", Metadata: map[string]string{
+			{Zone: "sh002", Metadata: map[string]string{
 				"weight": "5",
 			}},
-			&Instance{Zone: "sh002", Metadata: map[string]string{
+			{Zone: "sh002", Metadata: map[string]string{
 				"weight": "2",
 			}},
 		}
 		insInfo.Instances["sh003"] = []*Instance{
-			&Instance{Zone: "sh003", Metadata: map[string]string{
+			{Zone: "sh003", Metadata: map[string]string{
 				"weight": "5",
 			}},
-			&Instance{Zone: "sh003", Metadata: map[string]string{
+			{Zone: "sh003", Metadata: map[string]string{
 				"weight": "3",
 			}},
 		}
 		insInfo.Scheduler = []Zone{
-			Zone{
+			{
 				Src: "sh001",
 				Dst: map[string]int64{
 					"sh001": 2,
 					"sh002": 1,
 				},
 			},
-			Zone{
+			{
 				Src: "sh002",
 				Dst: map[string]int64{
 					"sh001": 1,

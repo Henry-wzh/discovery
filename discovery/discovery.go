@@ -5,9 +5,10 @@ import (
 	"sync/atomic"
 	"time"
 
+	http "github.com/go-kratos/kratos/pkg/net/http/blademaster"
+
 	"github.com/bilibili/discovery/conf"
 	"github.com/bilibili/discovery/registry"
-	http "github.com/go-kratos/kratos/pkg/net/http/blademaster"
 )
 
 // Discovery discovery.
